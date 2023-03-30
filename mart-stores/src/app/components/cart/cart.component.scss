@@ -1,0 +1,146 @@
+.search-cont {
+  .searchmenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 50px;
+
+    h4 {
+      font-size: 2rem;
+      font-family: "Sofia", cursive;
+    }
+  }
+
+  .search_selection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+
+    a {
+      list-style-type: none;
+      padding: 10px 30px;
+      padding-top: 30px;
+      font-size: 1.5rem;
+
+      font-family: Poppins, sans-serif;
+    }
+
+    a::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 100%;
+      border-bottom: 3px solid transparent;
+      transition: all ease 3s;
+    }
+
+    a:hover::before {
+      border-color: black;
+      width: 100px;
+      height: 100%;
+    }
+  }
+
+  .carttable {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: Poppins, sans-serif;
+    align-items: center;
+
+    .cartT {
+      width: 100%;
+      border-top: 1px solid gainsboro;
+      border-bottom: 1px solid gainsboro;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .pricequan {
+        display: flex;
+
+        li {
+          text-align: center;
+          padding: 0 5px;
+        }
+      }
+
+      li {
+        padding: 15px 0;
+        list-style-type: none;
+
+        .deleteimg {
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+        }
+
+        img {
+          width: 110px;
+          height: 120px;
+        }
+      }
+
+      .spans {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.checkoutbtn {
+  width: 98%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 75px auto;
+  a {
+    text-align: left;
+    padding: 25px 5em;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.877);
+    color: white;
+    font-family: Poppins, sans-serif;
+  }
+
+  a:hover {
+    background-color: black;
+  }
+}
+
+.activelink {
+  color: brown;
+  border-bottom: 3px solid brown;
+}
+
+@media screen and (max-width: 600px) {
+  .cartT {
+    width: 100%;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .pricequan {
+      display: flex;
+      flex-direction: column;
+
+      .horz{
+        display: none;
+      }
+
+      li {
+        text-align: center;
+        padding: 10px 0;
+      }
+    }
+  }
+}

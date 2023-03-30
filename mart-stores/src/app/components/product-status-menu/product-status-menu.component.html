@@ -1,0 +1,6 @@
+<div class="productStatus">
+    <div class="product_title text-center flex items-center justify-center py-[30px] font-kanit">
+        <a *ngFor="let pStatus of productStatus" class="px-[20px] transition-all hover:border-b-[4px] border-red-900"
+            routerLink="/home/{{ pStatus.id }}" routerLinkActive="activelink">{{ pStatus.statusName }}</a>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+// input{
+//     border: 10px solid red;
+//     padding: 30px;
+// }
+
+.container_form{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .form_layout{
+        padding: 20px;
+
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-self: center;
+            align-content: center;
+            height: 89vh;
+
+
+            p{
+                color: rgba(0, 0, 0, 0.842);
+                font-weight: bolder;
+                font-family: Poppins, sans-serif; 
+                font-size: 1.7rem;
+            }
+
+            .inputsfield{
+                display: flex;
+                flex-direction: column;
+                margin-top: 25px;
+            }
+
+            input{
+                margin-top: 10px;
+                padding: 15px;
+                width: 300px;
+                border: 1px solid gray;
+                font-family: Poppins, sans-serif;
+                border-radius: 5px;
+                
+            }
+
+            input:focus{
+                outline: none;
+                
+            }
+
+            button{
+                margin-top: 15px;
+                padding: 15px;
+                width: 300px;
+                background-color: #10a37f;
+                font-family: Poppins, sans-serif;
+                border-radius: 5px;
+                color: white;
+            }
+
+            span{
+                font-family: Poppins, sans-serif;
+                padding-top: 20px;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+

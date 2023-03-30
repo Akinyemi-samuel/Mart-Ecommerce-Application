@@ -1,0 +1,62 @@
+<!-- <form [formGroup]="form" action="" (ngSubmit)="submitdetail()">
+  <input type="text" formControlName="fullName" name="fullname" />
+
+  <input type="email" formControlName="email" name="email"  />
+
+  <input type="password" formControlName="password"name="password" />
+
+  <button type="submit">Submit</button>
+</form>
+
+<div *ngIf="form.touched && form.invalid">
+  <div *ngIf="fullname.errors?.required || email.errors?.required || password.errors?.required ">This field is required</div>
+  
+</div> -->
+
+<div class="container_form">
+  <div class="form_layout">
+    <p class="font-rye text-[1.5rem]">Mart</p>
+
+    <form [formGroup]="form" (ngSubmit)="submitdetail()">
+      <p>Create your account</p>
+
+      <div class="form_message">{{ formmsg }}</div>
+
+      <div class="inputsfield">
+        <input
+          type="text"
+          formControlName="fullName"
+          name="fullname"
+          placeholder="Full name"
+        />
+
+        <input
+          type="email"
+          formControlName="email"
+          name="email"
+          placeholder="Email address"
+        />
+        <input
+          type="password"
+          formControlName="password"
+          name="password"
+          placeholder="Password"
+        />
+      </div>
+      <button type="submit">Submit</button>
+      <span
+        >Already have an account?
+        <a class="text-[#10a37f]" routerLink="/login">Sign in</a></span
+      >
+    </form>
+  </div>
+</div>
+
+<!-- <form>
+  
+   
+  
+    
+  
+    
+  </form> -->

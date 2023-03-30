@@ -1,0 +1,37 @@
+
+<div class="cartmsg">
+    <p>{{LOG_CART_MSG}}</p>
+</div>
+<div class="productList">
+    <div class="row">
+        <div class="column"
+            *ngFor="let product of products | paginate:{itemsPerPage:size, currentPage:pageNumber, totalItems:totalElements}">
+            <div class="w-[100%] relative img-properties">
+                <img [src]="product.imageUrl" routerLink="/product-details/{{product.id}}" class="cursor-pointer" width="100%" />
+                <div class="transition-all btn">
+                    <div class="img-btn">
+                        <a (click)="cartProduct(product)"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        <a> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text">
+                <h1 class="text-center font-popins pt-[10px] font-bold">
+                    {{ product.name }}
+                </h1>
+                <p class="text-center font-popins pt-[10px]">
+                    {{ product.unitPrice | currency : "USD" }}
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <pagination-controls class="ngx-pagination"
+            (pageChange)="onPageChange($event)"
+            [maxSize]="5"
+            [responsive]="true"
+          ></pagination-controls>
+</div>

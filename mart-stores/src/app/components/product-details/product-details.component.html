@@ -1,0 +1,79 @@
+<app-header-nav></app-header-nav>
+<div class="product-page">
+    <hr />
+    <div class="product-details">
+
+        <div class="product-path">
+            <span class="cursor-pointer" routerLink="/">Home</span>
+            <img src="https://img.icons8.com/material-sharp/24/000000/long-arrow-right.png" />
+            <span>{{category}}</span>
+        </div>
+
+
+        <div *ngIf="product != null || product != undefined" class="product-sect1">
+            <div class="sec1"><img src="{{product.imageUrl}}" alt=""></div>
+            <div class="sec2">
+                <div class="title">
+                    <p>{{product.name}}</p>
+                </div>
+                <div class="description">
+                    {{product.description}}
+                </div>
+                <div class="reviews">
+                    <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i
+                        class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i
+                        class="fa fa-star-o" aria-hidden="true"></i>
+
+                    <p>(5 customer reviews)</p>
+                </div>
+                <div class="price">
+                    <p>{{product.unitPrice | currency: 'USD'}}</p>
+                </div>
+                <p class="cartmsg">{{LOG_CART_MSG}}</p>
+                <div class="button-sec">
+                    <a class="cursor-pointer" (click)="cartProduct(product)"><i class="px-[5px] fa fa-shopping-cart" aria-hidden="true"></i>Add to Cart</a>
+                    <a> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                </div>
+
+                <div class="category">
+                    <p><span>Category: </span>{{category}}</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="description_details">
+            <hr>
+
+            <div class="title">
+                <p>Description</p>
+            </div>
+
+            <div class="info">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat accusantium doloremque laudantium.</p>
+            </div>
+
+            <hr>
+        </div>
+
+        <div class="related_product">
+
+            <div class="title">
+                <p>Related Products</p>
+            </div>
+
+            <div class="listofproduct">
+                <app-product-temp-list [products]="products"></app-product-temp-list>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<app-footer></app-footer>

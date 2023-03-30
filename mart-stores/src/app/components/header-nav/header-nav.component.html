@@ -1,0 +1,95 @@
+<header
+  class="nav_header absolute z-[7] hover:bg-white hover:text-black text-black w-screen"
+>
+  <div
+    id="headercon"
+    class="flex justify-between px-[40px] py-[35px] items-center"
+  >
+    <div class="navlinks text-[12px] font-kanit font-bold">
+      <img
+        (click)="toggle()"
+        id="menu"
+        class="w-[20px] mx-[15px]"
+        src="/assets/images/menu.png"
+        alt=""
+      />
+      <a routerLink="/home">HOME</a>
+      <a routerLink="">CATEGORIES</a>
+      <a routerLink="/about">ABOUT</a>
+      <a routerLink="contact">CONTACT</a>
+    </div>
+
+    <div>
+      <h2 class="font-rye laptop:ml-[-150px] text-[20px]">Mart</h2>
+    </div>
+
+    <div class="rightside flex items-center justify-center">
+      <p
+        *ngIf="userActive === true"
+        class="text-amber-900 font-bold font-popins items-center flex"
+      >
+        <i class="fa fa-user mx-[15px]" aria-hidden="true"></i>
+        {{ activeName }}
+        <img
+          (click)="logout()"
+          title="Logout"
+          class="right_img w-[25px] h-[25px] mx-[10px]"
+          src="https://img.icons8.com/sf-regular/48/FA5252/logout-rounded-up.png"
+        />
+      </p>
+      <i
+        routerLink="/search"
+        class="fa fa-search mx-[20px]"
+        aria-hidden="true"
+      ></i>
+      <i
+        *ngIf="userActive === false"
+        routerLink="/login"
+        class="fa fa-user mx-[15px]"
+        aria-hidden="true"
+      ></i>
+      <img
+        title="Cart"
+        routerLink="/cart"
+        class="mx-[15px]"
+        src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/000000/external-cart-basic-anggara-basic-outline-anggara-putra.png"
+      />
+    </div>
+    <div *ngIf="togglevar" class="mobile_nav">
+      <div class="first_p">
+        <img (click)="toggle()" class="absolute left-[3%]" src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png"/>
+        <p class="font-rye">Mart</p>
+      </div>
+      <input
+        type="text"
+        #keywords
+        (keyup.enter)="searchValue(keywords.value)"
+        placeholder="Search"
+        class="font-popins"
+      />
+      <div class="linkstomenu">
+        <div class="leftside">
+          <a routerLink="/home">Home</a>
+          <a>Categories</a>
+          <a routerLink="/about">About</a>
+          <a routerLink="/contact">Contact</a>
+        </div>
+        <div class="rightside">
+          <a routerLink="/cart" class="flex items-center"> <img
+            title="Cart"
+            class="mx-[11px]"
+            src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/24/000000/external-cart-basic-anggara-basic-outline-anggara-putra.png"
+          /> Shopping Cart</a>
+          <a *ngIf="userActive === false"
+          routerLink="/login" class="flex items-center"> <i class="fa fa-user mx-[15px]" aria-hidden="true"></i> Login</a>
+          <a *ngIf="userActive === true"
+          (click)="logout()" class="flex items-center"> <img
+          title="Logout"
+          class="w-[25px] h-[25px] mx-[10px]"
+          src="https://img.icons8.com/sf-regular/48/FA5252/logout-rounded-up.png"
+        /> Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

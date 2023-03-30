@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+}
+
+.cartmsg{
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 300;
+    border-radius: 5px;
+}
+
+.productList .row{
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+}
+
+.productList .column{
+    height: auto;
+    float: left;
+    width: 25%;
+    padding: 10px;
+    margin: 15px 0; 
+}
+
+.productList .column img{
+    height: 300px;
+}
+
+.btn{
+    background: black;
+    color: white;
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    display: none;
+    transition: all ease 7s;
+    transform: scale(0);
+}
+
+.img-btn{
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    height: 100%;
+
+    a, i{
+        background: brown;
+        border-radius: 50%;
+        padding: 9px;
+    }
+}
+
+
+.productList .column:hover .btn{
+    display: block;
+    transform: scale(1);
+    transition: all 7s;
+}
+
+.img-btn a:hover{
+    color: black;
+}
+
+.productList .row::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width:600px) {
+    .productList .column{
+        float: left;
+        width: 50%;
+        padding: 15px; 
+    }
+
+    .productList .column img{
+        height: auto;
+    }
+    
+}
+
+pagination-controls{
+    position: absolute;
+    right: 5%;
+    background: brown;
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 20px;
+
+    next{
+        background-color: blue;
+    }
+}
+
+
+

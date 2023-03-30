@@ -1,0 +1,19 @@
+<div class="slideshow-container w-[100%]">
+  <div *ngFor="let img of images; let i = index" class="mySlides fade">
+
+    <img
+      class="bg-cover bg-center h-[400px] laptop:h-[100vh] desktop:h-[100vh]"
+      [ngClass]="{ active: selectedIndex === i }"
+      [src]="img.src"
+      style="width: 100%"
+    />
+  </div>
+
+  <a class="prev animate__animated animate__bounce" (click)="plusSlides(-1)">❮</a>
+  <a class="next animate__animated animate__bounce" (click)="plusSlides(1)">❯</a>
+
+<div class="absolute top-[30%] left-[50%] mx-auto transform translate-x-[-50%]">
+  <img class="animate__animated animate__backInDown" src="assets/images/new_arrival.png" alt="">
+</div>
+ 
+</div>

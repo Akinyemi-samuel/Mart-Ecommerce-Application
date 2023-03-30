@@ -1,0 +1,67 @@
+<div class="search-cont">
+  <div class="searchmenu">
+    <div class="searchmenu_left">
+      <h4>Cart</h4>
+    </div>
+
+    <div class="searchmenu_right">
+      <img
+        src="https://img.icons8.com/ios/30/000000/delete-sign--v1.png"
+        (click)="backToHome()"
+      />
+    </div>
+  </div>
+
+  <div class="search_selection">
+    <a routerLink="/cart" routerLinkActive="activelink">Shopping art</a>
+    <a routerLink="/carts/wishlist" routerLinkActive="activelink">WishList</a>
+    <div *ngIf="cartProduct == []"><p>Your Cart is empty</p></div>
+  </div>
+
+  <!-- <table>
+    <tbody *ngIf="cartProduct.length > 0">
+      <tr *ngFor="let item of cartProduct">
+        <td><img src="{{ item.productImg }}" alt="" /></td>
+        <td>{{ item.productName }}</td>
+        <td class="pricequan">
+          <span>
+            <span class="text-gray-400">Qty: </span
+            >{{ item.productQuantity }}</span
+          >
+          <span>{{ item.productPrice | currency : "USD" }}</span>
+        </td>
+        <td>
+          <img
+            class="deleteimg"
+            (click)="deleteByProduct(item)"
+            src="../../../assets/images/delete.png"
+            alt=""
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <div class="carttable">
+    <div *ngFor="let item of cartProduct" class="cartT">
+      <li><img src="{{ item.productImg }}" alt="" /></li>
+      <li>{{ item.productName }}</li>
+      <span class="pricequan">
+      <li>Qty: {{ item.productQuantity }}</li>
+      <span class="horz text-[brown]">|</span>
+      <li>{{ item.productPrice | currency : "USD" }}</li></span>
+      <li><img
+        class="deleteimg"
+        (click)="deleteByProduct(item)"
+        src="../../../assets/images/delete.png"
+        alt=""
+      /></li>
+    </div>
+  </div>
+
+</div>
+
+
+<div *ngIf="cartProduct.length > 0" class="checkoutbtn">
+  <a>{{ sumPrices | currency : "USD" }} | checkout</a>
+</div>
