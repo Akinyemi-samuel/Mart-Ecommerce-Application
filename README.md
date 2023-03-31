@@ -10,7 +10,7 @@ Angular: This folder contains the Angular front-end code for the project.
 springboot: This folder contains the Spring Boot back-end code for the project.
 
 
-Features
+## Features
 
 User registration and login 
 
