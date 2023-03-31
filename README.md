@@ -7,6 +7,7 @@ The project has two main folders in the repository:
 ```
 
 Angular: This folder contains the Angular front-end code for the project.
+
 springboot: This folder contains the Spring Boot back-end code for the project.
 
 
