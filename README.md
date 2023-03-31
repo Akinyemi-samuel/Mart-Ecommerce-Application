@@ -28,7 +28,7 @@ Application security using Jwt token
 ## Installation
 To install and run the project, follow these steps:
 
-Clone the repository: git clone https://github.com/username/mart.git
+Clone the repository: git clone https://github.com/Samfrosh/Mart-Ecommerce-Application.git
 
 Navigate to the angular folder: cd mart-stores
 
