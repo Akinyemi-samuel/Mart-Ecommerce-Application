@@ -15,15 +15,15 @@ springboot: This folder contains the Spring Boot back-end code for the project.
 
 Back-end: Spring (Boot, Data, Security), JPA / Hibernate, MySQL, JUnit
 
-Front-end: TypeScript, React.js, Redux Toolkit, Ant Design, Jest
+Front-end: TypeScript, Angular, Tailwind, Scss
 
 Security: JWT, Spring-Security
 
-REST API, GraphQL API
+REST API
 
 Server Build: Maven
 
-Client Build: npm, yarn, webpack
+Client Build: npm, yarn,
 
 
 
