@@ -13,12 +13,16 @@ springboot: This folder contains the Spring Boot back-end code for the project.
 
 ## Used Technologies:
 
-Back-end: Spring (Boot, Data, Security), JPA / Hibernate, PostgreSQL, JUnit, Mockito
+Back-end: Spring (Boot, Data, Security), JPA / Hibernate, MySQL, JUnit
+
 Front-end: TypeScript, React.js, Redux Toolkit, Ant Design, Jest
-Security: JWT, OAuth2 Google, Facebook, Github
+
+Security: JWT, Spring-Security
+
 REST API, GraphQL API
-AWS S3, Heroku
+
 Server Build: Maven
+
 Client Build: npm, yarn, webpack
 
 
