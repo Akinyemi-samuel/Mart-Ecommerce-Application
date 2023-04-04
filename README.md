@@ -1,6 +1,8 @@
 # Mart
 
 Mart is an e-commerce project built with Angular and Spring Boot. This project is designed to showcase a simple e-commerce website that allows users to browse products, add items to their cart, and check out using a secure payment gateway.
+
+
 <img src="https://github.com/Samfrosh/portfolio/blob/main/src/assets/images/mart.png" alt="">
 
 
