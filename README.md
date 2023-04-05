@@ -71,3 +71,5 @@ Note: You will need to have Node.js and Java installed on your machine to run th
 ## Contributing
 
 Contributions to the Mart project are welcome! If you find a bug or would like to suggest a new feature, please open an issue on the project's GitHub repository.
+
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-product.png" alt="">
