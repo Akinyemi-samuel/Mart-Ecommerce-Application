@@ -76,10 +76,10 @@ Contributions to the Mart project are welcome! If you find a bug or would like t
 
 <img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/login.png" alt="">
 
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-product.png" alt="">
+
 <img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/search.png" alt="">
 
 <img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/details.png" alt="">
-
-<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-product.png" alt="">
 
 <img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-cart.png" alt="">
