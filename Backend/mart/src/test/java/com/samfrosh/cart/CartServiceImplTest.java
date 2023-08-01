@@ -17,7 +17,7 @@ class CartServiceImplTest {
 
     @Test
     void getcartlist() throws CartError {
-       List<CartItems> cartItemsList =  cartService.getCartItems("25");
+       List<DtoCart> cartItemsList =  cartService.getCartItems("25");
        cartItemsList.stream().collect(Collectors.toList()).forEach(System.out::println);
 
     }
