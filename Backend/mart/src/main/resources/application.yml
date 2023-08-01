@@ -27,11 +27,9 @@ spring:
   profile: production
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: ecommerceapp
-    testWhileIdle: true
-    url: jdbc:mysql://localhost:3306/mart?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: ecommerceapp
-    validationQuery: SELECT 1
+    password: qf301rH0OwkjRvBqB37a
+    url: jdbc:mysql://containers-us-west-46.railway.app:5832/railway
+    username: root
   jpa:
     hibernate:
       ddl-auto: update
