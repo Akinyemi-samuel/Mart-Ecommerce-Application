@@ -1,8 +1,5 @@
 package com.samfrosh.product;
 
-import com.samfrosh.product.ProductNotFound;
-import com.samfrosh.product.Product;
-import com.samfrosh.product.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
