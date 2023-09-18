@@ -1,7 +1,6 @@
 package com.samfrosh.config;
 
-import com.samfrosh.error.JwtTokenExpiredException;
-import com.samfrosh.user.UserDetailsSeriviceImpl;
+import com.samfrosh.service.UserDetailsSeriviceImpl;
 import io.micrometer.common.lang.NonNull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

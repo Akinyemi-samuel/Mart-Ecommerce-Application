@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: production
+    default: development
 
 ---
 
@@ -23,17 +23,26 @@ spring:
 
 
 ---
-spring:
-  profile: production
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    password: qf301rH0OwkjRvBqB37a
-    url: jdbc:mysql://containers-us-west-46.railway.app:5832/railway
-    username: root
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-    show-sql: true
+#spring:
+#  profile: production
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: qf301rH0OwkjRvBqB37a
+#    url: jdbc:mysql://containers-us-west-46.railway.app:5832/railway
+#    username: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#    show-sql: true
+#    logging:
+#      level:
+#        org:
+#          springframework:
+#            core:
+#              env=DEBUG:
+
+
+---

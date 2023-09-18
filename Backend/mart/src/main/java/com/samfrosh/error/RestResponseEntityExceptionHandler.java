@@ -1,8 +1,8 @@
 package com.samfrosh.error;
 
-import com.samfrosh.cart.CartError;
-import com.samfrosh.product.ProductNotFound;
-import com.samfrosh.user.UserExits;
+import com.samfrosh.exception.CartError;
+import com.samfrosh.exception.ProductNotFound;
+import com.samfrosh.exception.UserExits;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,5 @@
 package com.samfrosh.repository;
 
-import com.samfrosh.product.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

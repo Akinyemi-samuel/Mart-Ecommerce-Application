@@ -31,7 +31,7 @@ public class WebSecurityConfig {
                 .cors()
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/user/**","/cart/**","/product/**","/productstatus", "/productcategory")
+                .requestMatchers("/user/**","/cart/**","/product/**","/productstatus", "/productcategory", "/api/v1/notification")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
