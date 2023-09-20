@@ -1,4 +1,4 @@
-package com.samfrosh.dto;
+package com.samfrosh.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

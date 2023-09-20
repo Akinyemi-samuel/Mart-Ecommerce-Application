@@ -1,8 +1,8 @@
 package com.samfrosh.controller;
 
-import com.samfrosh.dto.AuthenticationResponse;
-import com.samfrosh.dto.DtoUser;
-import com.samfrosh.dto.UserDto;
+import com.samfrosh.dto.response.AuthenticationResponse;
+import com.samfrosh.dto.response.DtoUser;
+import com.samfrosh.dto.request.UserDto;
 import com.samfrosh.exception.UserExits;
 import com.samfrosh.service.UserService;
 import io.jsonwebtoken.MalformedJwtException;

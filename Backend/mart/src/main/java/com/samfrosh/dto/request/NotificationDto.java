@@ -1,4 +1,4 @@
-package com.samfrosh.dto;
+package com.samfrosh.dto.request;
 
 public record NotificationDto(
         String userId,

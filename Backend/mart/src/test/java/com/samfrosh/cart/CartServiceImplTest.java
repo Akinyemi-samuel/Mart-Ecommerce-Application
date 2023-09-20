@@ -1,6 +1,6 @@
 package com.samfrosh.cart;
 
-import com.samfrosh.dto.DtoCart;
+import com.samfrosh.dto.response.DtoCart;
 import com.samfrosh.exception.CartError;
 import com.samfrosh.service.CartServiceImpl;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.samfrosh.dto;
+package com.samfrosh.dto.response;
 
 public record DtoCart(
         Long id,

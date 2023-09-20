@@ -1,7 +1,7 @@
 package com.samfrosh.controller;
 
-import com.samfrosh.dto.CartDto;
-import com.samfrosh.dto.DtoCart;
+import com.samfrosh.dto.request.CartDto;
+import com.samfrosh.dto.response.DtoCart;
 import com.samfrosh.exception.CartError;
 import com.samfrosh.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;

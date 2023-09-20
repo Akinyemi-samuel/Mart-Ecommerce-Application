@@ -1,8 +1,8 @@
 package com.samfrosh.controller;
 
 import com.samfrosh.ConstantValues;
-import com.samfrosh.dto.NotificationDto;
-import com.samfrosh.model.Notification;
+import com.samfrosh.dto.request.NotificationDto;
+import com.samfrosh.dto.response.DtoNotification;
 import com.samfrosh.service.NotificationService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,12 +21,11 @@ public class NotificationController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public String addNotification(@RequestBody NotificationDto notificationDto){
-        String notificationResponse = notificationService.addNotification(notificationDto);
-        return notificationResponse;
+        return notificationService.addNotification(notificationDto);
     }
 
     @GetMapping
-    public List<Notification> getNotifications() {
-        return notificationService.getNotifications();
+    public List<DtoNotification> getNotifications(@RequestParam("userId") String userId) {
+        return notificationService.getNotificationsByIdOrGeneral(userId);
     }
 }

@@ -1,6 +1,6 @@
 package com.samfrosh.dto;
 
-import com.samfrosh.dto.DtoUser;
+import com.samfrosh.dto.response.DtoUser;
 import com.samfrosh.model.User;
 import org.springframework.stereotype.Service;
 
