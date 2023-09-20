@@ -10,6 +10,8 @@ import java.util.List;
 public interface ProductsService {
     Page<Product> getProductByStatusId(Long id , int page, int size) throws ProductNotFound;
 
+    List<Product> getProductByStatusIdLimit(Long id);
+
     Product getProductById(Long id) throws ProductNotFound;
 
     Page<Product> searchProductByName(String name, int page, int size);

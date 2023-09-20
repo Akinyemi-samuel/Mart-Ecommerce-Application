@@ -15,12 +15,19 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Page<Product> findByProductStatusId(Long id, Pageable pageable);
 
+
+    @Query(
+            "SELECT p FROM Product p WHERE p.productStatus.id = ?1 ORDER BY RAND() LIMIT 4"
+    )
+    List<Product> findByProductStatusIdLimit(Long id);
+
+
     Page<Product> findByNameContaining(String name, Pageable pageable);
 
     @Query(
              "SELECT p FROM Product p WHERE p.category.id = ?1 ORDER BY RAND() LIMIT 4"
     )
-    List<Product>  findByCategoryIds(Long id);
+    List<Product>  findByCategoryIdLimit(Long id);
 
 
 

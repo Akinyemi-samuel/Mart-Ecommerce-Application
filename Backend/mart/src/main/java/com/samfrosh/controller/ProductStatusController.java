@@ -16,7 +16,7 @@ public class ProductStatusController {
     private ProductStatusService productStatusService;
 
     @GetMapping("/productstatus")
-    public List<ProductStatus> findProductStatus(){
+    public List<ProductStatus> getProductStatusList(){
         return productStatusService.getProductStatusList();
     }
 

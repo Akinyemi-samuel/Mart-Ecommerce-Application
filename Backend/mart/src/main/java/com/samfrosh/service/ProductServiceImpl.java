@@ -13,22 +13,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductStatusService, ProductsService {
-
-    @Autowired
-    private ProductStatusRepository productStatusRepository;
+public class ProductServiceImpl implements ProductsService {
 
     @Autowired
     private ProductRepository productRepository;
 
     @Override
-    public List<ProductStatus> getProductStatusList() {
-        return productStatusRepository.findAll();
+    public Page<Product> getProductByStatusId(Long id, int page, int size) throws ProductNotFound {
+            return productRepository.findByProductStatusId(id, PageRequest.of(page, size));
     }
 
     @Override
-    public Page<Product> getProductByStatusId(Long id, int page, int size) throws ProductNotFound {
-            return productRepository.findByProductStatusId(id, PageRequest.of(page, size));
+    public List<Product> getProductByStatusIdLimit(Long id) {
+        return productRepository.findByProductStatusIdLimit(id);
     }
 
     @Override
@@ -43,6 +40,6 @@ public class ProductServiceImpl implements ProductStatusService, ProductsService
 
     @Override
     public List<Product> getRandomProductByCategoryIdLimit(Long id) {
-        return productRepository.findByCategoryIds(id);
+        return productRepository.findByCategoryIdLimit(id);
     }
 }

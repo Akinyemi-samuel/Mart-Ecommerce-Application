@@ -29,23 +29,30 @@ public class ProductController {
     public ResponseEntity<Page<Product>> getProductByStatusId(@PathVariable(value = "id") Long id,
                                                               @PathVariable(value = "page") int page,
                                                               @PathVariable(value = "size") int size) throws ProductNotFound {
-        return ResponseEntity.status(HttpStatus.OK).body(productsService.getProductByStatusId(id,page,size));
+        return ResponseEntity.status(HttpStatus.OK).body(productsService.getProductByStatusId(id, page, size));
     }
 
     @GetMapping("/search/{name}/{page}/{size}")
     public ResponseEntity<Page<Product>> searchProductByName(@PathVariable("name") String name,
-                                             @PathVariable("page") int page,
-                                             @PathVariable("size") int size){
-        return ResponseEntity.status(HttpStatus.OK).body(productsService.searchProductByName(name,page,size));
+                                                             @PathVariable("page") int page,
+                                                             @PathVariable("size") int size) {
+        return ResponseEntity.status(HttpStatus.OK).body(productsService.searchProductByName(name, page, size));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById( @PathVariable("id") Long id) throws ProductNotFound{
+    public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) throws ProductNotFound {
         return ResponseEntity.status(HttpStatus.OK).body(productsService.getProductById(id));
     }
 
     @GetMapping("/bycategory/random/{id}")
-    public ResponseEntity<List<Product>> getRandomProductByCategoryIdLimit(@PathVariable(value = "id") Long id){
+    public ResponseEntity<List<Product>> getRandomProductByCategoryIdLimit(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(productsService.getRandomProductByCategoryIdLimit(id));
     }
+
+    @GetMapping("/bystatus/random/{id}")
+    public ResponseEntity<List<Product>> getRandomProductByStatusIdLimit(@PathVariable(value = "id") Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(productsService.getProductByStatusIdLimit(id));
+    }
+
+
 }
