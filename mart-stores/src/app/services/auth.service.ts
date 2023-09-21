@@ -37,7 +37,7 @@ export class AuthService {
 
     const headers = { Authorization: `Bearer ${token}` };
 
-    return this.http.get<any>('http://localhost:8080/user/userdetails', {
+    return this.http.get<any>(`${environment.apiUrl}/user/userdetails`, {
       headers,
     });
   }
