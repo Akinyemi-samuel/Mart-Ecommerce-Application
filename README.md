@@ -3,7 +3,7 @@
 Mart is an E-commerce project built using Angular(front-end) and Spring Boot(back-end). This project is designed to showcase a simple E-commerce website that allows users to browse products, add items to their cart, and check out using a secure payment gateway.
 
 An actual version of frontend build deployed to Netlify and backend deployed to Railway:
-<a href="https://mart-s.netlify.app/"  _blank>Mart Website<a>
+<a href="https://mart-s.netlify.app/" target=" _blank">Mart Website<a>
 <p>Login: test@gmail.com</p>
 <p>Password: test</p>
 
