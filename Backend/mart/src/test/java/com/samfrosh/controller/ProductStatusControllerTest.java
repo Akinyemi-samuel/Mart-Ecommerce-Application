@@ -13,10 +13,7 @@ class ProductStatusControllerTest {
     @Autowired
     private ProductController productController;
 
-    @Test
-    public void findProductStatus(){
-        System.out.println("hello: " + productStatusController.findProductStatus());
-    }
+
 
 
 
