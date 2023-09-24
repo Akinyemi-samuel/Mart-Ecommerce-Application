@@ -8,6 +8,7 @@ import com.samfrosh.model.CartItems;
 import com.samfrosh.repository.CartItemsRepository;
 import com.samfrosh.repository.CartRepository;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +18,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class CartServiceImpl implements CartService {
 
     @Autowired
-    private CartRepository cartRepository;
+    private final CartRepository cartRepository;
 
     @Autowired
-    private CartItemsRepository cartItemsRepository;
+    private final CartItemsRepository cartItemsRepository;
 
     @Override
     public String addItemsToCart(CartDto cartDto) throws CartError {
