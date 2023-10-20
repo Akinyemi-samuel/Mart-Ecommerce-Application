@@ -1,0 +1,21 @@
+spring:
+  profile: production
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: FridSmviLhxZcaQNYhPD
+    url: jdbc:mysql://containers-us-west-197.railway.app:7687/railway
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    logging:
+      level:
+        org:
+          springframework:
+            core:
+              env=DEBUG:
+
