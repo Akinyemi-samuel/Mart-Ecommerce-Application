@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://amused-tooth-production.up.railway.app',
-  loginUrl: 'https://amused-tooth-production.up.railway.app/user/login',
-  logoutUrl: 'https://amused-tooth-production.up.railway.app/user/logout',
+  apiUrl: 'https://mart-ecommerce-application.up.railway.app',
+  loginUrl: 'https://mart-ecommerce-application.up.railway.app/user/login',
+  logoutUrl: 'https://mart-ecommerce-application.up.railway.app/user/logout',
 };
