@@ -1,5 +1,6 @@
 package com.samfrosh.service;
 
+import ch.qos.logback.classic.spi.IThrowableProxy;
 import com.samfrosh.config.JwtService;
 import com.samfrosh.dto.response.AuthenticationResponse;
 import com.samfrosh.dto.response.DtoUser;
@@ -21,21 +22,19 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+    private final UserMapper mappertoDto;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private JwtService jwtService;
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private UserMapper mappertoDto;
-
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager authenticationManager, UserMapper mappertoDto) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
+        this.authenticationManager = authenticationManager;
+        this.mappertoDto = mappertoDto;
+    }
 
     @Override
     public DtoUser findUserByUserName(String userName) throws UserExits {
@@ -95,4 +94,20 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+
+    @Override
+    public String UpdateUserDetails(Long id, UserDto userDto) throws UserExits {
+
+        User user = userRepository.findById(id).orElseThrow(()-> new UserExits("User Does not exist"));
+
+        user.setFullName(userDto.getFullName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setRole(user.getRole());
+
+        userRepository.save(user);
+
+        return "User has been updated successfully";
+    }
+
 }

@@ -12,4 +12,6 @@ public interface UserService {
     AuthenticationResponse newUser(UserDto userDto) throws Exception;
 
     AuthenticationResponse loginUser(UserDto userDto) throws UserExits;
+
+    String UpdateUserDetails(Long id, UserDto userDto) throws UserExits;
 }

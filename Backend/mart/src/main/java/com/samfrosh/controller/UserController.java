@@ -46,4 +46,9 @@ public class UserController {
         }
     }
 
+    @PostMapping("/update/{id}")
+    public ResponseEntity<String> UpdateUserDetails(@PathVariable(value = "id") Long id, @RequestBody UserDto userDto) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.UpdateUserDetails(id, userDto));
+    }
+
 }
