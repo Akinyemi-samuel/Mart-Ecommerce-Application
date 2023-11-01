@@ -2,11 +2,12 @@
 
 Mart is a comprehensive E-commerce application developed with Angular (front-end) and Spring Boot (back-end). This project serves as an exemplary E-commerce platform, enabling users to explore products, manage their shopping carts, and securely complete purchases.
 
+<img src="https://github.com/Samfrosh/portfolio/blob/main/src/assets/images/mart.png" alt="">
 ![Mart Website](https://github.com/Samfrosh/portfolio/blob/main/src/assets/images/mart.png)
 
 **Live Demo**: [Mart Website](https://mart-s.netlify.app/)
-- **Login**: test@gmail.com
-- **Password**: test
+- **Login**: samuel@gmail.com
+- **Password**: samuel
 
 ## Table of Contents
 
