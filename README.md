@@ -3,7 +3,6 @@
 Mart is a comprehensive E-commerce application developed with Angular (front-end) and Spring Boot (back-end). This project serves as an exemplary E-commerce platform, enabling users to explore products, manage their shopping carts, and securely complete purchases.
 
 <img src="https://github.com/Samfrosh/portfolio/blob/main/src/assets/images/mart.png" alt="">
-![Mart Website](https://github.com/Samfrosh/portfolio/blob/main/src/assets/images/mart.png)
 
 **Live Demo**: [Mart Website](https://mart-s.netlify.app/)
 - **Login**: samuel@gmail.com
@@ -56,3 +55,55 @@ To set up and run the project, follow these steps:
 
    ```bash
    git clone https://github.com/Samfrosh/Mart-Ecommerce-Application.git
+   Navigate to the Angular folder:
+
+bash
+Copy code
+cd mart-stores
+Install the Angular CLI:
+
+bash
+Copy code
+npm install -g @angular/cli
+Install project dependencies:
+
+bash
+Copy code
+npm install
+Start the Angular development server:
+
+bash
+Copy code
+ng serve
+Open a new terminal window/tab and navigate to the Spring Boot folder:
+
+bash
+Copy code
+cd Backend/Mart
+Install project dependencies:
+
+bash
+Copy code
+./mvnw install
+Start the Spring Boot server:
+
+bash
+Copy code
+./mvnw spring-boot:run
+Open a web browser and navigate to http://localhost:4200 to view the application.
+
+Note: Node.js and Java need to be installed on your machine to run this project.
+
+Contributing
+Contributions to the Mart project are highly encouraged! If you discover a bug or have ideas for new features, please open an issue on the project's GitHub repository.
+
+Screenshots
+Explore the Mart E-commerce Application:
+
+Register
+Login
+Product View
+Search
+Product Details
+Cart
+Thank you for considering contributing to this project! Your support and contributions are greatly appreciated.
