@@ -1,7 +1,3 @@
-server:
-  servlet:
-    context-path: /api/v2
-
 spring:
   profile: production
   datasource:
