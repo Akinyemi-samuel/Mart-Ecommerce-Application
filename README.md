@@ -1,88 +1,57 @@
-# Mart
+# Mart - E-commerce Application
 
-Mart is an E-commerce project built using Angular(front-end) and Spring Boot(back-end). This project is designed to showcase a simple E-commerce website that allows users to browse products, add items to their cart, and check out using a secure payment gateway.
+Mart is a comprehensive E-commerce application developed with Angular (front-end) and Spring Boot (back-end). This project serves as an exemplary E-commerce platform, enabling users to explore products, manage their shopping carts, and securely complete purchases.
 
-An actual version of frontend build deployed to Netlify and backend deployed to Railway:
-<a href="https://mart-s.netlify.app/" target="_blank">Mart Website<a>
-<p>Login: test@gmail.com</p>
-<p>Password: test</p>
+![Mart Website](https://github.com/Samfrosh/portfolio/blob/main/src/assets/images/mart.png)
 
+**Live Demo**: [Mart Website](https://mart-s.netlify.app/)
+- **Login**: test@gmail.com
+- **Password**: test
 
-<img src="https://github.com/Samfrosh/portfolio/blob/main/src/assets/images/mart.png" alt="">
+## Table of Contents
 
+- [Project Overview](#project-overview)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Key Features](#key-features)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [Screenshots](#screenshots)
 
-```bash
-The project has two main folders in the repository:
-```
+## Project Overview
 
-Angular: This folder contains the Angular front-end code for the project.
+Mart combines Angular for the front-end and Spring Boot for the back-end to deliver a robust E-commerce platform. With features such as user registration and login, product browsing, cart management, secure payment processing, and JWT-based security, this project provides a complete shopping experience.
 
-springboot: This folder contains the Spring Boot back-end code for the project.
+## Project Structure
 
+The project is organized into two primary folders within the repository:
 
-## Used Technologies:
+1. **Angular**: Contains the Angular front-end code for the project.
+2. **Spring Boot**: Contains the Spring Boot back-end code for the project.
 
-Back-end: Spring (Boot, Data, Security),
-JPA / Hibernate for Object relational Maping,
-MySQL for data storage, 
-JUnit for testing
-Front-end: TypeScript, Angular, Tailwind, Scss
-Security: JWT(json web token), Spring-Security
-REST API
-Server Build: Maven
-Client Build: npm, yarn,
+## Technologies Used
 
+- **Back-end**: Utilizes Spring Boot, Spring Data, and Spring Security for seamless backend operations. JPA/Hibernate is used for Object-Relational Mapping, while MySQL stores data. JUnit is employed for testing.
+- **Front-end**: Developed using TypeScript and Angular, enhanced with Tailwind CSS and SCSS for a visually appealing user interface.
+- **Security**: Implements JWT (JSON Web Token) and Spring Security to protect user data.
+- **API**: Facilitates communication between the front-end and back-end through RESTful APIs.
+- **Build Tools**: The project is built using Maven (for the server) and npm/yarn (for the client).
 
+## Key Features
 
-## Features
+Mart offers a range of essential E-commerce features, including:
 
-User registration and login 
-
-Product browsing and searching
-
-Shopping cart management
-
-Secure payment processing
-
-Application security using Jwt token
-
-
+- **User Registration and Login**: Seamless user onboarding and login process.
+- **Product Browsing and Searching**: Easily find and filter products.
+- **Shopping Cart Management**: Add, remove, and manage items in your cart.
+- **Secure Payment Processing**: Safely complete transactions with a secure payment gateway.
+- **JWT-based Security**: Protects user data through JSON Web Tokens and Spring Security.
 
 ## Installation
-To install and run the project, follow these steps:
 
-Clone the repository: git clone https://github.com/Samfrosh/Mart-Ecommerce-Application.git
+To set up and run the project, follow these steps:
 
-Navigate to the angular folder: cd mart-stores
+1. **Clone the repository**:
 
-Install the Angular CLI: npm install -g @angular/cli.
-
-Install project dependencies: npm install
-
-Start the Angular development server: ng serve
-
-Open a new terminal window/tab and navigate to the springboot folder: cd Backend/Mart
-
-Install project dependencies: ./mvnw install
-
-Start the Spring Boot server: ./mvnw spring-boot:run
-
-Open a web browser and navigate to http://localhost:4200 to view the application.
-
-Note: You will need to have Node.js and Java installed on your machine to run this project.
-
-## Contributing
-
-Contributions to the Mart project are welcome! If you find a bug or would like to suggest a new feature, please open an issue on the project's GitHub repository.
-
-<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/register.png" alt="">" alt="">
-
-<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/login.png" alt="">
-
-<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-product.png" alt="">
-
-<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/search.png" alt="">
-
-<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/details.png" alt="">
-
-<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-cart.png" alt="">
+   ```bash
+   git clone https://github.com/Samfrosh/Mart-Ecommerce-Application.git
