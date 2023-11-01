@@ -1,5 +1,7 @@
 package com.samfrosh.service;
 
+import com.samfrosh.dto.request.EditUserDto;
+import com.samfrosh.dto.request.PasswordChangeDto;
 import com.samfrosh.dto.response.AuthenticationResponse;
 import com.samfrosh.dto.response.DtoUser;
 import com.samfrosh.dto.request.UserDto;
@@ -13,5 +15,7 @@ public interface UserService {
 
     AuthenticationResponse loginUser(UserDto userDto) throws UserExits;
 
-    String UpdateUserDetails(Long id, UserDto userDto) throws UserExits;
+    String UpdateUserDetails(Long id, EditUserDto editUserDto) throws UserExits;
+
+    String UpdateUserPassword(Long id, PasswordChangeDto passwordChangeDto) throws UserExits;
 }

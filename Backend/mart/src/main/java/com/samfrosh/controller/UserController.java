@@ -1,5 +1,7 @@
 package com.samfrosh.controller;
 
+import com.samfrosh.dto.request.EditUserDto;
+import com.samfrosh.dto.request.PasswordChangeDto;
 import com.samfrosh.dto.response.AuthenticationResponse;
 import com.samfrosh.dto.response.DtoUser;
 import com.samfrosh.dto.request.UserDto;
@@ -37,9 +39,9 @@ public class UserController {
     @GetMapping("/userdetails")
     public ResponseEntity<DtoUser> getUserDetailsByToken(HttpServletRequest request) throws UserExits {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if ((authentication == null || !authentication.isAuthenticated())){
+        if ((authentication == null || !authentication.isAuthenticated())) {
             throw new MalformedJwtException("User is not authenticated");
-        }else{
+        } else {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String username = userDetails.getUsername();
             return ResponseEntity.status(HttpStatus.OK).body(userService.findUserByUserName(username));
@@ -47,8 +49,13 @@ public class UserController {
     }
 
     @PostMapping("/update/{id}")
-    public ResponseEntity<String> UpdateUserDetails(@PathVariable(value = "id") Long id, @RequestBody UserDto userDto) throws Exception {
-        return ResponseEntity.status(HttpStatus.OK).body(userService.UpdateUserDetails(id, userDto));
+    public ResponseEntity<String> UpdateUserDetails(@PathVariable(value = "id") Long id, @RequestBody EditUserDto editUserDto) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.UpdateUserDetails(id, editUserDto));
+    }
+
+    @PostMapping("/update/password/{id}")
+    public ResponseEntity<String> UpdateUserPassword(@PathVariable(value = "id") Long id, @RequestBody PasswordChangeDto passwordChangeDto) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.UpdateUserPassword(id, passwordChangeDto));
     }
 
 }

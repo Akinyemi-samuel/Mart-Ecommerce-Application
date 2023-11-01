@@ -2,6 +2,8 @@ package com.samfrosh.service;
 
 import ch.qos.logback.classic.spi.IThrowableProxy;
 import com.samfrosh.config.JwtService;
+import com.samfrosh.dto.request.EditUserDto;
+import com.samfrosh.dto.request.PasswordChangeDto;
 import com.samfrosh.dto.response.AuthenticationResponse;
 import com.samfrosh.dto.response.DtoUser;
 import com.samfrosh.dto.request.UserDto;
@@ -96,18 +98,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String UpdateUserDetails(Long id, UserDto userDto) throws UserExits {
+    public String UpdateUserDetails(Long id, EditUserDto editUserDto) throws UserExits {
 
         User user = userRepository.findById(id).orElseThrow(()-> new UserExits("User Does not exist"));
 
-        user.setFullName(userDto.getFullName());
-        user.setEmail(userDto.getEmail());
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setRole(user.getRole());
+        user.setFullName(editUserDto.getFullName());
+        user.setEmail(editUserDto.getEmail());
 
         userRepository.save(user);
 
         return "User has been updated successfully";
+    }
+
+    @Override
+    public String UpdateUserPassword(Long id, PasswordChangeDto passwordChangeDto) throws UserExits {
+        User user = userRepository.findById(id).orElseThrow(()-> new UserExits("User Does not exist"));
+
+        user.setPassword(passwordEncoder.encode(passwordChangeDto.getPassword()));
+
+        userRepository.save(user);
+
+        return "User Password has been updated successfully";
     }
 
 }
