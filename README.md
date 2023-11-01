@@ -53,57 +53,45 @@ To set up and run the project, follow these steps:
 
 1. **Clone the repository**:
 
-   ```bash
-   git clone https://github.com/Samfrosh/Mart-Ecommerce-Application.git
-   Navigate to the Angular folder:
+2. **Navigate to the Angular folder**:
 
-bash
-Copy code
-cd mart-stores
-Install the Angular CLI:
+3. **Install the Angular CLI**:
 
-bash
-Copy code
-npm install -g @angular/cli
-Install project dependencies:
+4. **Install project dependencies**:
 
-bash
-Copy code
-npm install
-Start the Angular development server:
+5. **Start the Angular development server**:
 
-bash
-Copy code
-ng serve
-Open a new terminal window/tab and navigate to the Spring Boot folder:
+6. **Open a new terminal window/tab and navigate to the Spring Boot folder**:
 
-bash
-Copy code
-cd Backend/Mart
-Install project dependencies:
+7. **Install project dependencies**:
 
-bash
-Copy code
-./mvnw install
-Start the Spring Boot server:
+8. **Start the Spring Boot server**:
 
-bash
-Copy code
-./mvnw spring-boot:run
-Open a web browser and navigate to http://localhost:4200 to view the application.
+9. **Open a web browser** and navigate to [http://localhost:4200](http://localhost:4200) to view the application.
 
-Note: Node.js and Java need to be installed on your machine to run this project.
+**Note**: Node.js and Java need to be installed on your machine to run this project.
 
-Contributing
+## Contributing
+
 Contributions to the Mart project are highly encouraged! If you discover a bug or have ideas for new features, please open an issue on the project's GitHub repository.
 
-Screenshots
+## Screenshots
+
 Explore the Mart E-commerce Application:
 
-Register
-Login
-Product View
-Search
-Product Details
-Cart
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/register.png" alt="">
+
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/login.png" alt="">
+
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-product.png" alt="">
+
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/search.png" alt="">
+
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/details.png" alt="">
+
+<img src="https://github.com/Samfrosh/Mart-Ecommerce-Application/blob/main/mart-stores/src/assets/images/mart-cart.png" alt="">
+
+
 Thank you for considering contributing to this project! Your support and contributions are greatly appreciated.
+   
+
