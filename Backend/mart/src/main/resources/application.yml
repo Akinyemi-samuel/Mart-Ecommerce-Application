@@ -8,12 +8,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: ecommerceapp
     testWhileIdle: true
-    url: jdbc:mysql://localhost:3306/mart?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/mart_back_up?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: ecommerceapp
     validationQuery: SELECT 1
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect

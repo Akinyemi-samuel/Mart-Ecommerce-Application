@@ -36,6 +36,7 @@ public class WebSecurityConfig {
                         "/user/**",
                         "/cart/**",
                         "/product/**",
+                        "/wishlist/**",
                         "/productstatus",
                         "/productcategory",
                         "/api/v1/notification",
