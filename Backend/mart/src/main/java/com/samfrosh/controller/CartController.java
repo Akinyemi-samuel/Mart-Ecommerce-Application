@@ -4,14 +4,17 @@ import com.samfrosh.dto.request.CartDto;
 import com.samfrosh.dto.response.DtoCart;
 import com.samfrosh.exception.CartError;
 import com.samfrosh.service.CartService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/cart")
 @CrossOrigin()
+@Tag(name = "Cart")
 public class CartController {
 
     @Autowired
@@ -30,8 +33,8 @@ public class CartController {
     @DeleteMapping("{product_id}/{item_id}")
     public void deleteProduct(
             @PathVariable(value = "product_id") String product_id,
-            @PathVariable(value = "item_id") Long item_id) throws CartError{
-             cartService.deleteProduct(product_id, item_id);
+            @PathVariable(value = "item_id") Long item_id) throws CartError {
+        cartService.deleteProduct(product_id, item_id);
     }
 
 

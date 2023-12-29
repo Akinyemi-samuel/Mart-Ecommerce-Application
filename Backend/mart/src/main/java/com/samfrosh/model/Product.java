@@ -1,7 +1,5 @@
 package com.samfrosh.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -55,9 +53,7 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private ProductCategory category;
 
-    @ToString.Exclude
     @OneToOne(mappedBy = "product")
-    @JsonIgnoreProperties("product")
     private WishList wishList;
 
     @Override
@@ -75,4 +71,5 @@ public class Product {
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
+
 }

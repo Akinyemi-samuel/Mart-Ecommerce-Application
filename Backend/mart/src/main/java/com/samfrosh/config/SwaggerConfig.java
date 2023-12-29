@@ -24,11 +24,11 @@ import io.swagger.v3.oas.annotations.servers.Server;
         ),
         servers = {
                 @Server(
-                        description = "",
+                        description = "Local server for application development",
                         url = "http://localhost:8080/api/v2"
                 ),
                 @Server(
-                        description = "",
+                        description = "Production Server of application",
                         url = ""
                 )
         }

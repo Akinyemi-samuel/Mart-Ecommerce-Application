@@ -8,6 +8,7 @@ import com.samfrosh.dto.request.UserDto;
 import com.samfrosh.exception.UserExits;
 import com.samfrosh.service.UserService;
 import io.jsonwebtoken.MalformedJwtException;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 @CrossOrigin()
+@Tag(name = "User")
 public class UserController {
 
     @Autowired

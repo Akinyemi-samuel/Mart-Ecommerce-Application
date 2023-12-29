@@ -3,6 +3,7 @@ package com.samfrosh.controller;
 import com.samfrosh.model.Product;
 import com.samfrosh.exception.ProductNotFound;
 import com.samfrosh.service.ProductsService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import java.util.List;
 @CrossOrigin()
 @RestController
 @RequestMapping("/product")
+@Tag(name = "Product")
 public class ProductController {
 
     @Autowired

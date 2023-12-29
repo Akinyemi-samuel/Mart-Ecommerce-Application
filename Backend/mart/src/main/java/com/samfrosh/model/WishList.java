@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
 
 import java.util.Objects;
 
@@ -32,8 +31,21 @@ public class WishList {
     private Long userId;
 
 
-    @OneToOne()
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")
-    @JsonIgnore
+    @JsonIgnoreProperties({"productStatus", "category", "wishList"})
     private Product product;
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WishList wishList)) return false;
+        return Objects.equals(getId(), wishList.getId()) && Objects.equals(getUserId(), wishList.getUserId()) && Objects.equals(getProduct(), wishList.getProduct());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getUserId(), getProduct());
+    }
 }

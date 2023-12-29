@@ -20,13 +20,14 @@ public class WishlistService {
     private final ProductsService productsService;
 
     public List<WishList> getAllProductByUserWishListId(Long id) throws ProductNotFound {
-        List<WishList> wishLists = wishListRepository.findAll();
-       return wishLists ;
+        List<WishList> wishLists = wishListRepository.findAllWishListById(id);
+        if (wishLists.isEmpty()) throw new ProductNotFound("User WishList Not Found");
+        return wishLists;
     }
 
-    public void AddproductToWishListByUser(WishListDto wishListDto) throws ProductNotFound {
+    public void addProductToWishListByUser(WishListDto wishListDto) throws ProductNotFound {
 
-        try{
+        try {
             Product product = productsService.getProductById(wishListDto.getProductId());
             log.info("Product received by userId -: " + wishListDto.getUserId());
 
