@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 @Slf4j
@@ -17,19 +19,20 @@ public class WishlistService {
     private final WishListRepository wishListRepository;
     private final ProductsService productsService;
 
-//    public WishList getAllProductByUserWishListId(){
-//        wishListRepository.findAllById()
-//    }
+    public List<WishList> getAllProductByUserWishListId(Long id) throws ProductNotFound {
+        List<WishList> wishLists = wishListRepository.findAll();
+       return wishLists ;
+    }
 
     public void AddproductToWishListByUser(WishListDto wishListDto) throws ProductNotFound {
 
         try{
-            Product product = productsService.getProductById(wishListDto.getProductid());
-            log.info("Product received by userId -: " + wishListDto.getUserid());
+            Product product = productsService.getProductById(wishListDto.getProductId());
+            log.info("Product received by userId -: " + wishListDto.getUserId());
 
             WishList wishListInstance = WishList.builder()
-                    .UserId(wishListDto.getUserid())
-                    .Product(product)
+                    .userId(wishListDto.getUserId())
+                    .product(product)
                     .build();
 
             wishListRepository.save(wishListInstance);

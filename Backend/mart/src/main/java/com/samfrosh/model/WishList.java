@@ -1,14 +1,19 @@
 package com.samfrosh.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
-@AllArgsConstructor
-@NoArgsConstructor
+import java.util.Objects;
+
 @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "wishlist")
 public class WishList {
@@ -24,9 +29,11 @@ public class WishList {
     )
     private Long id;
 
-    private Long UserId;
+    private Long userId;
+
 
     @OneToOne()
     @JoinColumn(name = "product_id")
-    private Product Product;
+    @JsonIgnore
+    private Product product;
 }
