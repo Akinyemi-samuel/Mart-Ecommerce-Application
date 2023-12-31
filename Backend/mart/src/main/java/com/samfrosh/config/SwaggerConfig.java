@@ -28,8 +28,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
                         url = "http://localhost:8080/api/v2"
                 ),
                 @Server(
-                        description = "Production Server of application",
-                        url = ""
+                        description = "Production Server of application deployment",
+                        url = "https://production-server-name/api/v2"
                 )
         }
 )
