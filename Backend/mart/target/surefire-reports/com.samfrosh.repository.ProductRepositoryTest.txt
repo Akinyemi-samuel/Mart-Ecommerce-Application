@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.samfrosh.repository.ProductRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.408 s <<< FAILURE! - in com.samfrosh.repository.ProductRepositoryTest
+testProductRepository  Time elapsed: 0.357 s  <<< ERROR!
+org.springframework.orm.jpa.JpaSystemException: More than one row with the given identifier was found: 3, for class: com.samfrosh.model.WishList
+	at com.samfrosh.repository.ProductRepositoryTest.testProductRepository(ProductRepositoryTest.java:16)
+Caused by: org.hibernate.HibernateException: More than one row with the given identifier was found: 3, for class: com.samfrosh.model.WishList
+	at com.samfrosh.repository.ProductRepositoryTest.testProductRepository(ProductRepositoryTest.java:16)
+
+testProductRepositorysearch  Time elapsed: 0.048 s  <<< ERROR!
+org.springframework.orm.jpa.JpaSystemException: More than one row with the given identifier was found: 2, for class: com.samfrosh.model.WishList
+	at com.samfrosh.repository.ProductRepositoryTest.testProductRepositorysearch(ProductRepositoryTest.java:21)
+Caused by: org.hibernate.HibernateException: More than one row with the given identifier was found: 2, for class: com.samfrosh.model.WishList
+	at com.samfrosh.repository.ProductRepositoryTest.testProductRepositorysearch(ProductRepositoryTest.java:21)
+

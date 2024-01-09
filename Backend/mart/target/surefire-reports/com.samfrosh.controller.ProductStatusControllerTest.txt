@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.samfrosh.controller.ProductStatusControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.099 s <<< FAILURE! - in com.samfrosh.controller.ProductStatusControllerTest
+findProductStatus  Time elapsed: 0.094 s  <<< ERROR!
+org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.samfrosh.model.ProductStatus.products: could not initialize proxy - no Session
+	at com.samfrosh.controller.ProductStatusControllerTest.findProductStatus(ProductStatusControllerTest.java:18)
+
