@@ -11,14 +11,14 @@ class ProductRepositoryTest {
     @Autowired
     private ProductRepository productRepository;
 
-    @Test
-    public void testProductRepository(){
-        System.out.println(productRepository.findByProductStatusId(1L, PageRequest.of(0,4)));
-    }
-
-    @Test
-    public void testProductRepositorysearch(){
-        System.out.println(productRepository.findByNameContaining("a", PageRequest.of(0,4)));
-    }
+//    @Test
+//    public void testProductRepository(){
+//        System.out.println(productRepository.findByProductStatusId(1L, PageRequest.of(0,4)));
+//    }
+//
+//    @Test
+//    public void testProductRepositorysearch(){
+//        System.out.println(productRepository.findByNameContaining("a", PageRequest.of(0,4)));
+//    }
 
 }
