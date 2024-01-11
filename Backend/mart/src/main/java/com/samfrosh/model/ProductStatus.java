@@ -1,5 +1,6 @@
 package com.samfrosh.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class ProductStatus {
     @Column(name = "status_name")
     private String statusName;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "productStatus")
     private Set<Product> products;
 
