@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
+  {path: '', redirectTo:'/home', pathMatch:'full'},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home/:id', component: HomeComponent },
@@ -20,7 +21,6 @@ const routes: Routes = [
   {path: 'product-details/:id', component:ProductDetailsComponent},
   {path: 'search', component:SearchComponent},
   {path: 'search/:keyword', component:SearchComponent},
-   {path: '', redirectTo:'/home', pathMatch:'full'},
   { path: '**', component: HomeComponent },
 
 ];
