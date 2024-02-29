@@ -26,8 +26,11 @@ jobs:
       - name: Update submodules
         run: git submodule update --remote
 
+
+      - name: Set executable permission for Maven wrapper
+        run: chmod +x Backend/mart/mvnw
+
+
       - name: Build with Maven
-        run: |
-          icacls Backend\mart\mvnw /grant Everyone:RX
-          mvn -f Backend/mart/pom.xml verify
+        run: Backend/mart/mvnw -ntp verify
 
