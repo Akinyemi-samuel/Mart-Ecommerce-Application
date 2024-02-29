@@ -26,9 +26,6 @@ jobs:
       - name: Update submodules
         run: git submodule update --remote
 
-      - name: Set executable permission for Maven wrapper
-        run: chmod +x ./Backend/mart/mvnw
-
-      - name: Build with Maven
-        run: ./Backend/mart/mvnw -ntp verify
+      - name: Build and Test with Maven
+        run: mvn clean test
 
