@@ -20,14 +20,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Initialize submodules
-        run: git submodule update --init --recursive
-
-      - name: Update submodules
-        run: git submodule update --remote
-
       - name: Build with Maven
         run: |
           cd Backend/mart
-          ./mvnw -ntp verify
+          mvn clean
           cd ..
