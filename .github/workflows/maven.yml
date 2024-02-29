@@ -17,14 +17,9 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
-          cache: maven
 
-      - name: Initialize submodules
-        run: git submodule update --init --recursive
-
-      - name: Update submodules
-        run: git submodule update --remote
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Build and Test with Maven
         run: |
