@@ -27,4 +27,7 @@ jobs:
         run: git submodule update --remote
 
       - name: Build with Maven
-        run: ./Backend/mart/mvnw -ntp verify
+        run: |
+          icacls Backend\mart\mvnw /grant Everyone:RX
+          mvn -f Backend/mart/pom.xml verify
+
