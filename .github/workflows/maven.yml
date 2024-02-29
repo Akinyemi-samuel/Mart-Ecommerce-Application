@@ -27,5 +27,4 @@ jobs:
         run: git submodule update --remote
 
       - name: Build with Maven
-        run: cd Backend/mart
-          ./mvnw -ntp verify
+        run: ./Backend/mart/mvnw -ntp verify
