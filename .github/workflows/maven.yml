@@ -12,12 +12,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: ./Backend/mart/mvnw -ntp verify
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
+
+      - name: Update submodules
+        run: git submodule update --remote
+
+      - name: Build with Maven
+        run: cd Backend/mart
+          ./mvnw -ntp verify
