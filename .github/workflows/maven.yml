@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Mart Application CI with Maven
 
 on:
   push:
