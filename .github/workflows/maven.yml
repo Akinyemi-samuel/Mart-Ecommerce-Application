@@ -1,4 +1,4 @@
-name: Mart Application CI with Maven
+name: Mart Appication CI with Maven
 
 on:
   push:
@@ -17,13 +17,17 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
 
-      - name: Build and Test with Maven
+      - name: Update submodules
+        run: git submodule update --remote
+
+      - name: Build with Maven
         run: |
           cd Backend/mart
-          mvn clean install
+          ./mvnw -ntp verify
           cd ..
-
