@@ -27,5 +27,6 @@ jobs:
         run: git submodule update --remote
 
       - name: Build and Test with Maven
+        working-directory: ./Backend/mart
         run: mvn clean test
 
