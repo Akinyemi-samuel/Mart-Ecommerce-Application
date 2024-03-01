@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:17.0.2
 LABEL authors="Samuel"
 WORKDIR /app
 COPY target/mart-file.jar /app
