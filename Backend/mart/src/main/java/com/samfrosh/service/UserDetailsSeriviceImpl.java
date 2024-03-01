@@ -20,7 +20,7 @@ public class UserDetailsSeriviceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) {
        Optional<User> optional = userRepository.findByEmail(username);
-       User user = null;
+       User user;
        if (optional.isPresent()) {
            user = optional.get();
        }else{

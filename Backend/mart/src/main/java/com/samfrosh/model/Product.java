@@ -1,5 +1,6 @@
 package com.samfrosh.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -54,6 +55,7 @@ public class Product {
     private ProductCategory category;
 
     @OneToOne(mappedBy = "product")
+    @JsonIgnore
     private WishList wishList;
 
     @Override

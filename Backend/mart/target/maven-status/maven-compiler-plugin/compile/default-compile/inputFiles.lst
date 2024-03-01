@@ -27,6 +27,7 @@ C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\dto\UserMapper.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\model\Role.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\dto\response\DtoCart.java
+C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\config\CustomSwaggerConfig.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\exception\CartError.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\repository\CartRepository.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\dto\request\PasswordChangeDto.java
@@ -55,7 +56,6 @@ C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\config\JwtService.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\service\ProductStatusServiceImpl.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\controller\CartController.java
-C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\config\SwaggerConfig.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\config\JwtAuthenticationFilter.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\error\JwtTokenExpiredException.java
 C:\Users\samfr\Documents\Mart-Ecommerce-Application2\Backend\mart\src\main\java\com\samfrosh\model\Cart.java

@@ -31,8 +31,8 @@ public class CartServiceImpl implements CartService {
     public String addItemsToCart(CartDto cartDto) throws CartError {
         //!checks if that user has a cart account and if he has then check if the product he is trying to put in the cart already exists
         Optional<Cart> optional = cartRepository.findByUserId(cartDto.getUserid());
-        Cart cart =null;
-        CartItems cartItems = null;
+        Cart cart;
+        CartItems cartItems;
         if (optional.isPresent()) {
             cart = optional.get();
             Optional<CartItems> optional2 = cartItemsRepository.findByCartAndProductId(cart,cartDto.getProductid());
@@ -93,7 +93,7 @@ public class CartServiceImpl implements CartService {
         Cart cart = optional.orElseThrow(()-> new CartError("User was not found"));
 
         Optional<List<CartItems>> optional1 = cartItemsRepository.findByCart(cart);
-        List<CartItems> cartItems = null;
+        List<CartItems> cartItems;
         if (optional1.isPresent()) {
             cartItems = optional1.get();
          List<DtoCart> dtoCart = cartItems.stream().map(str -> new DtoCart(

@@ -1,0 +1,4 @@
+com\samfrosh\repository\ProductRepositoryTest.class
+com\samfrosh\MartApplicationTests.class
+com\samfrosh\service\CartServiceImplTest.class
+com\samfrosh\controller\ProductStatusControllerTest.class

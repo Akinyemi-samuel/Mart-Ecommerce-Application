@@ -8,6 +8,8 @@ import com.samfrosh.dto.request.UserDto;
 import com.samfrosh.exception.UserExits;
 import com.samfrosh.service.UserService;
 import io.jsonwebtoken.MalformedJwtException;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,17 +29,29 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Operation(
+            summary = "Create New User"
+    )
     @PostMapping("/new")
+    @ApiResponse(responseCode = "201", description = "Create New User")
     public ResponseEntity<AuthenticationResponse> newUser(@RequestBody UserDto userDto) throws Exception {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.newUser(userDto));
     }
 
 
+    @Operation(
+            summary = "Log-In User"
+    )
+    @ApiResponse(responseCode = "201", description = "Log-In User")
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> Login(@RequestBody UserDto userDto) throws UserExits {
         return ResponseEntity.status(HttpStatus.OK).body(userService.loginUser(userDto));
     }
 
+    @Operation(
+            summary = "Get User Details"
+    )
+    @ApiResponse(responseCode = "201", description = "Get User Details")
     @GetMapping("/userdetails")
     public ResponseEntity<DtoUser> getUserDetailsByToken(HttpServletRequest request) throws UserExits {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -50,11 +64,20 @@ public class UserController {
         }
     }
 
+
+    @Operation(
+            summary = "Update User Details"
+    )
+    @ApiResponse(responseCode = "201", description = "Update User Details")
     @PostMapping("/update/{id}")
     public ResponseEntity<String> UpdateUserDetails(@PathVariable(value = "id") Long id, @RequestBody EditUserDto editUserDto) throws Exception {
         return ResponseEntity.status(HttpStatus.OK).body(userService.UpdateUserDetails(id, editUserDto));
     }
 
+    @Operation(
+            summary = "Update User Password"
+    )
+    @ApiResponse(responseCode = "201", description = "Update User Password")
     @PostMapping("/update/password/{id}")
     public ResponseEntity<String> UpdateUserPassword(@PathVariable(value = "id") Long id, @RequestBody PasswordChangeDto passwordChangeDto) throws Exception {
         return ResponseEntity.status(HttpStatus.OK).body(userService.UpdateUserPassword(id, passwordChangeDto));

@@ -3,12 +3,12 @@ server:
     context-path: /api/v2
 spring:
   profiles:
-    active: prod
+    active: default
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: ecommerceapp
     testWhileIdle: true
-    url: jdbc:mysql://localhost:3306/mart_back_up?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/mart?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: ecommerceapp
     validationQuery: SELECT 1
   jpa:
@@ -18,3 +18,13 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
+
+springdoc:
+  api-docs:
+    enabled: true
+
+  swagger-ui:
+    enabled: true
+    tryItOutEnabled: true
+
+  packagesToScan: com.samfrosh.controller

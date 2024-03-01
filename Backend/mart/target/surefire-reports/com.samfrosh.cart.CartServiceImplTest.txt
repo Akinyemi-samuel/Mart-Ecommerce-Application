@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.samfrosh.cart.CartServiceImplTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 17.235 s <<< FAILURE! - in com.samfrosh.cart.CartServiceImplTest
-getcartlist  Time elapsed: 0.749 s  <<< ERROR!
-com.samfrosh.exception.CartError: User was not found
-	at com.samfrosh.cart.CartServiceImplTest.getcartlist(CartServiceImplTest.java:21)
-

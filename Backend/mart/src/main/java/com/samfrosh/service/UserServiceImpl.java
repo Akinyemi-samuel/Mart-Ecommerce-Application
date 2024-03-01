@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     public AuthenticationResponse newUser(UserDto userDto) throws Exception {
 
         Optional<User> optional = userRepository.findByEmail(userDto.getEmail());
-        User user = null;
+        User user;
         if (optional.isPresent()) {
             throw new UserExits("user already exists");
         }else{
@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
     public AuthenticationResponse loginUser(UserDto userDto) throws UserExits {
 
         Optional<User> optional = userRepository.findByEmail(userDto.getEmail());
-        User user = null;
+        User user;
         if (optional.isPresent()) {
             user = optional.get();
             if (passwordEncoder.matches(userDto.getPassword(),user.getPassword())){
