@@ -1,6 +1,7 @@
 package com.samfrosh.error;
 
 import com.samfrosh.exception.CartError;
+import com.samfrosh.exception.NotificationError;
 import com.samfrosh.exception.ProductNotFound;
 import com.samfrosh.exception.UserExits;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -36,6 +37,12 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     @ExceptionHandler(CartError.class)
     public ResponseEntity<ErrorMsg> cartError(CartError ex) {
+        ErrorMsg apiError = new ErrorMsg(HttpStatus.OK, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.OK).body(apiError);
+    }
+
+    @ExceptionHandler(NotificationError.class)
+    public ResponseEntity<ErrorMsg> notificationError(NotificationError ex) {
         ErrorMsg apiError = new ErrorMsg(HttpStatus.OK, ex.getMessage());
         return ResponseEntity.status(HttpStatus.OK).body(apiError);
     }

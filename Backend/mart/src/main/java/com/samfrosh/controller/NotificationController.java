@@ -3,6 +3,7 @@ package com.samfrosh.controller;
 import com.samfrosh.ConstantValues;
 import com.samfrosh.dto.request.NotificationDto;
 import com.samfrosh.dto.response.DtoNotification;
+import com.samfrosh.exception.NotificationError;
 import com.samfrosh.service.NotificationService;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;

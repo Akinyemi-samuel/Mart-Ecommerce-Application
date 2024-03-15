@@ -1,6 +1,5 @@
 package com.samfrosh.error;
 
-import com.samfrosh.config.JwtAuthenticationFilter;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import jakarta.servlet.ServletException;

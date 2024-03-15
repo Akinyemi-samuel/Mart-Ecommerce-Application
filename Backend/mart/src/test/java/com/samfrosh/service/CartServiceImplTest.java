@@ -33,16 +33,16 @@ class CartServiceImplTest {
     }
 
     @Test
-     void test_successfully_delete_product() {
+    void test_successfully_delete_product() {
         //given
         String productId = "12";
         Long userId = 20L;
 
-            //when
-            cartService.deleteProduct(productId, userId);
+        //when
+        cartService.deleteProduct(productId, userId);
 
-            //then
-            verify(cartItemsRepositoryMock, times(1)).deleteByIdAndProductId(userId, productId);
+        //then
+        verify(cartItemsRepositoryMock, times(1)).deleteByIdAndProductId(userId, productId);
 
     }
 }

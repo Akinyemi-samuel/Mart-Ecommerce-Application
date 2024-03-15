@@ -15,7 +15,6 @@ import java.util.List;
 
 @Builder
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(
@@ -40,10 +39,20 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
+    public User(Long id, String fullName, String email, String password, Role role) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
     private String password;
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
