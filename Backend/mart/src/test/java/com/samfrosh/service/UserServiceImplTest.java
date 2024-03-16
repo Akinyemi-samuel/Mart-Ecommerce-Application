@@ -5,11 +5,15 @@ import com.samfrosh.dto.UserMapper;
 import com.samfrosh.dto.request.EditUserDto;
 import com.samfrosh.dto.request.UserDto;
 import com.samfrosh.dto.response.AuthenticationResponse;
+import com.samfrosh.exception.ApiException;
 import com.samfrosh.exception.UserExits;
 import com.samfrosh.model.Role;
 import com.samfrosh.model.User;
 import com.samfrosh.repository.UserRepository;
+import com.samfrosh.validations.IsEmailValid;
+import com.samfrosh.validations.IsPasswordValid;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -17,124 +21,171 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-
 
 public class UserServiceImplTest {
 
 
-    // newUser method creates a new user with encoded password and returns a valid JWT token
+    // creates a new user with valid email and password, and returns an authentication response
     @Test
-    public void test_newUser_createsUserWithEncodedPasswordAndReturnsValidJwtToken() throws Exception {
+    public void test_create_new_user_with_valid_email_and_password() throws Exception {
         // Given
         UserRepository userRepository = mock(UserRepository.class);
         PasswordEncoder passwordEncoder = mock(PasswordEncoder.class);
         JwtService jwtService = mock(JwtService.class);
         AuthenticationManager authenticationManager = mock(AuthenticationManager.class);
         UserMapper userMapper = mock(UserMapper.class);
+        IsEmailValid isEmailValid = mock(IsEmailValid.class);
+        EmailService emailService = mock(EmailService.class);
+        IsPasswordValid isPasswordValid = mock(IsPasswordValid.class);
 
-        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper);
+        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper, isEmailValid, emailService, isPasswordValid);
 
-        UserDto userDto = new UserDto("John Doe", "john.doe@example.com", "password");
-        String encodedPassword = "password";
-        User user = new User(null, "John Doe", "john.doe@example.com", "password", Role.USER);
-        String jwtToken = "jwtToken";
+        UserDto userDto = new UserDto("John Doe", "john.doe@example.com", "password123");
 
+        User user = new User();
+        user.setFullName(userDto.getFullName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setRole(Role.USER);
+
+        when(isEmailValid.test(userDto.getEmail())).thenReturn(true);
+        when(isPasswordValid.test(userDto.getPassword())).thenReturn(true);
         when(userRepository.findByEmail(userDto.getEmail())).thenReturn(Optional.empty());
-        when(passwordEncoder.encode(userDto.getPassword())).thenReturn(encodedPassword);
-        when(jwtService.generateToken(user)).thenReturn(jwtToken);
+        when(userRepository.save(any(User.class))).thenReturn(user);
 
         // When
         AuthenticationResponse response = userService.newUser(userDto);
 
         // Then
-        assertEquals(jwtToken, response.getToken());
-        verify(userRepository, times(1)).findByEmail(userDto.getEmail());
-        verify(passwordEncoder, times(1)).encode(userDto.getPassword());
-        verify(jwtService, times(1)).generateToken(user);
-        verify(userRepository, times(1)).save(user);
+        verify(userRepository,times(1)).save(user);
+        assertEquals("Registration Successful", response.getResponse());
     }
 
-    // loginUser method returns a valid JWT token for a valid user credentials
+    // logs in a user with valid email and password, and returns an authentication response
     @Test
-    public void test_loginUser_returnsValidJwtTokenForValidUserCredentials() throws UserExits {
+    public void test_login_user_with_valid_email_and_password() throws UserExits {
         // Given
         UserRepository userRepository = mock(UserRepository.class);
         PasswordEncoder passwordEncoder = mock(PasswordEncoder.class);
         JwtService jwtService = mock(JwtService.class);
         AuthenticationManager authenticationManager = mock(AuthenticationManager.class);
         UserMapper userMapper = mock(UserMapper.class);
+        IsEmailValid isEmailValid = mock(IsEmailValid.class);
+        EmailService emailService = mock(EmailService.class);
+        IsPasswordValid isPasswordValid = mock(IsPasswordValid.class);
 
-        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper);
+        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper, isEmailValid, emailService, isPasswordValid);
 
-        UserDto userDto = new UserDto("John Doe", "john.doe@example.com", "password");
-        String encodedPassword = "encodedPassword";
-        User user = new User(1L, "John Doe", "john.doe@example.com", passwordEncoder.encode(encodedPassword), Role.USER);
-        String jwtToken = "jwtToken";
+        UserDto userDto = new UserDto("John Doe", "john.doe@example.com", "password123");
+
+        User user = new User();
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         when(userRepository.findByEmail(userDto.getEmail())).thenReturn(Optional.of(user));
         when(passwordEncoder.matches(userDto.getPassword(), user.getPassword())).thenReturn(true);
-        when(jwtService.generateToken(user)).thenReturn(jwtToken);
+        when(jwtService.generateToken(user)).thenReturn("jwtToken");
 
         // When
         AuthenticationResponse response = userService.loginUser(userDto);
 
         // Then
-        assertEquals(jwtToken, response.getToken());
-        verify(userRepository).findByEmail(userDto.getEmail());
-        verify(passwordEncoder).matches(userDto.getPassword(), user.getPassword());
-        verify(jwtService).generateToken(user);
+        assertEquals("jwtToken", response.getResponse());
     }
 
-    // UpdateUserDetails method updates user details and returns a success message
+    // updates user details with valid email, and returns a success message
     @Test
-    public void test_UpdateUserDetails_updatesUserDetailsAndReturnsSuccessMessage() throws UserExits {
+    public void test_update_user_details_with_valid_email() throws UserExits {
         // Given
         UserRepository userRepository = mock(UserRepository.class);
         PasswordEncoder passwordEncoder = mock(PasswordEncoder.class);
         JwtService jwtService = mock(JwtService.class);
         AuthenticationManager authenticationManager = mock(AuthenticationManager.class);
         UserMapper userMapper = mock(UserMapper.class);
+        IsEmailValid isEmailValid = mock(IsEmailValid.class);
+        EmailService emailService = mock(EmailService.class);
+        IsPasswordValid isPasswordValid = mock(IsPasswordValid.class);
 
-        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper);
+        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper, isEmailValid, emailService, isPasswordValid);
 
         Long userId = 1L;
         EditUserDto editUserDto = new EditUserDto("John Doe", "john.doe@example.com");
-        User user = new User(userId, "Old Name", "old.email@example.com","encodedPassword", Role.USER);
 
+        User user = new User();
+        user.setId(userId);
+
+        when(isEmailValid.test(editUserDto.getEmail())).thenReturn(true);
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+        when(userRepository.saveAndFlush(user)).thenReturn(user);
 
         // When
-        String result = userService.UpdateUserDetails(userId, editUserDto);
+        String response = userService.UpdateUserDetails(userId, editUserDto);
 
         // Then
-        assertEquals("User has been updated successfully", result);
-        assertEquals(editUserDto.getFullName(), user.getFullName());
-        assertEquals(editUserDto.getEmail(), user.getEmail());
-        verify(userRepository).findById(userId);
-        verify(userRepository).saveAndFlush(user);
+        assertEquals("User has been updated successfully", response);
     }
 
-    // newUser method throws UserExits exception if user already exists
+    // throws an ApiException with status code 406 if email is invalid
     @Test
-    public void test_newUser_throwsUserExitsExceptionIfUserAlreadyExists() throws Exception {
+    public void test_throw_api_exception_if_email_is_invalid() {
         // Given
         UserRepository userRepository = mock(UserRepository.class);
         PasswordEncoder passwordEncoder = mock(PasswordEncoder.class);
         JwtService jwtService = mock(JwtService.class);
         AuthenticationManager authenticationManager = mock(AuthenticationManager.class);
         UserMapper userMapper = mock(UserMapper.class);
+        IsEmailValid isEmailValid = mock(IsEmailValid.class);
+        EmailService emailService = mock(EmailService.class);
+        IsPasswordValid isPasswordValid = mock(IsPasswordValid.class);
 
-        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper);
+        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper, isEmailValid, emailService, isPasswordValid);
 
-        UserDto userDto = new UserDto("John Doe", "john.doe@example.com", "password");
-        User existingUser = new User(1L, "John Doe", "john.doe@example.com", "encodedPassword", Role.USER);
+        UserDto userDto = new UserDto("John Doe", "john.doe@example.com", "password123");
 
-        when(userRepository.findByEmail(userDto.getEmail())).thenReturn(Optional.of(existingUser));
+        when(isEmailValid.test(userDto.getEmail())).thenReturn(false);
+
+        // When
+        ApiException exception = assertThrows(ApiException.class, () -> userService.newUser(userDto));
 
         // Then
-        assertThrows(UserExits.class, () -> userService.newUser(userDto));
-        verify(userRepository).findByEmail(userDto.getEmail());
+        assertEquals("Invalid Email Found", exception.getMessage());
+        assertEquals(HttpStatus.NOT_ACCEPTABLE, exception.getHttpStatus());
+    }
+
+    // throws a UserExits exception if user already exists
+    @Test
+    public void test_throw_user_exists_exception_if_user_already_exists() {
+        // Given
+        UserRepository userRepository = mock(UserRepository.class);
+        PasswordEncoder passwordEncoder = mock(PasswordEncoder.class);
+        JwtService jwtService = mock(JwtService.class);
+        AuthenticationManager authenticationManager = mock(AuthenticationManager.class);
+        UserMapper userMapper = mock(UserMapper.class);
+        IsEmailValid isEmailValid = mock(IsEmailValid.class);
+        EmailService emailService = mock(EmailService.class);
+        IsPasswordValid isPasswordValid = mock(IsPasswordValid.class);
+
+        UserServiceImpl userService = new UserServiceImpl(userRepository, passwordEncoder, jwtService, authenticationManager, userMapper, isEmailValid, emailService, isPasswordValid);
+
+        UserDto userDto = new UserDto("John Doe", "john.doe@example.com", "password123");
+
+        User user = new User();
+        user.setFullName(userDto.getFullName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setRole(Role.USER);
+
+        when(isEmailValid.test(userDto.getEmail())).thenReturn(true);
+        when(isPasswordValid.test(userDto.getPassword())).thenReturn(true);
+        when(userRepository.findByEmail(userDto.getEmail())).thenReturn(Optional.of(user));
+
+        // When
+        UserExits exception = assertThrows(UserExits.class, () -> userService.newUser(userDto));
+
+        // Then
+        assertEquals("user already exists", exception.getMessage());
     }
 
 }

@@ -19,6 +19,40 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
 
+  spring:
+    profile: prod
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      password: pjJR5IK0ez4H6Ony7gtk
+      url: jdbc:mysql://bxbfpebksvzlsklaxbhi-mysql.services.clever-cloud.com:3306/bxbfpebksvzlsklaxbhi
+      username: urlkvndlhig3dnt7
+    jpa:
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+      show-sql: true
+      logging:
+        level:
+          org:
+            springframework:
+              core:
+                env=DEBUG:
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: akinyemisamuelayo@gmail.com
+    password: uzpsqosvsxqjjiuj
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
 springdoc:
   api-docs:
     enabled: true

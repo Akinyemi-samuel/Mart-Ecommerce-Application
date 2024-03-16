@@ -1,9 +1,6 @@
 package com.samfrosh.error;
 
-import com.samfrosh.exception.CartError;
-import com.samfrosh.exception.NotificationError;
-import com.samfrosh.exception.ProductNotFound;
-import com.samfrosh.exception.UserExits;
+import com.samfrosh.exception.*;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.http.HttpStatus;
@@ -43,7 +40,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     @ExceptionHandler(NotificationError.class)
     public ResponseEntity<ErrorMsg> notificationError(NotificationError ex) {
-        ErrorMsg apiError = new ErrorMsg(HttpStatus.OK, ex.getMessage());
+        ErrorMsg apiError = new ErrorMsg(HttpStatus.BAD_REQUEST, ex.getMessage());
         return ResponseEntity.status(HttpStatus.OK).body(apiError);
     }
 
@@ -57,5 +54,11 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     public ResponseEntity<ErrorMsg> jwtexpired2(ExpiredJwtException ex) {
         ErrorMsg apiError = new ErrorMsg(HttpStatus.UNAUTHORIZED, ex.getMessage());
         return ResponseEntity.status(HttpStatus.OK).body(apiError);
+    }
+
+    @ExceptionHandler(ApiException.class)
+    public ResponseEntity<Object> handleApiException(ApiException apiException) {
+        ApiException apiException1 = new ApiException(apiException.getMessage(), apiException.getHttpStatus());
+        return new ResponseEntity<>(apiException1.getMessage(), apiException1.getHttpStatus());
     }
 }
